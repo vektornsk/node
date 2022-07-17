@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node home_1.js"
+    "test": "jest",
+    "start": "node script.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vektornsk/node/issues"
   },
-  "homepage": "https://github.com/vektornsk/node#readme"
+  "homepage": "https://github.com/vektornsk/node#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
 }

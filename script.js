@@ -13,7 +13,7 @@ const json = {
 };
 
 function tree(data, n = 0) {
-    draw(n, data);
+    console.log(draw(n, data.name));
     if(data.items) {
         n++;
         for(const key in data.items) {
@@ -22,7 +22,7 @@ function tree(data, n = 0) {
     }
 }
 
-function draw(n, data) {
+function draw(n, name) {
     let tab = '';
     let sp = '└— ';
     let i = 0;
@@ -30,7 +30,13 @@ function draw(n, data) {
         tab = tab + '..';
         i++
     }
-    console.log(`${n - 1 <= 0 ? '': tab}${tab ? sp : ''}${data.name}`)
+
+   return `${n - 1 <= 0 ? '': tab}${tab ? sp : ''}${name}`
 }
 
 tree(json);
+
+module.exports = {
+    draw,
+    tree
+}
