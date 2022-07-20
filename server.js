@@ -10,21 +10,21 @@ const superAdmin = [
 ];
 const admins = [];
 
-
-app.use((req, res, next) => {
+app.use(express.json());
+/*app.use((req, res, next) => {
 
     //TODO: проверить наличие хедера с авторизацией (Не работает)
-    /*const token = false
+    /!*const token = false
     console.log(req.headers)
 
     if(!token && !req.originalUrl.match('\/auth')) {
        res.redirect('/auth');
     } else {
         next();
-    }*/
+    }*!/
 
     next();
-});
+});*/
 
 app.get('/auth', (req, res) => {
     const {query, query: {login, password}} = req;
