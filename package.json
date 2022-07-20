@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vektornsk/node/issues"
   },
-  "homepage": "https://github.com/vektornsk/node#readme"
+  "homepage": "https://github.com/vektornsk/node#readme",
+  "dependencies": {
+    "express": "4.18.1"
+  }
 }
