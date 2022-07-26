@@ -26,9 +26,8 @@ it('test draw', () => {
     expect(result).toBe("....└— 3");
 });
 
-it('test tree', () => {
-    const spy = jest.spyOn(m, 'draw');
-    m.tree(json);
-
-    expect(spy).toHaveBeenCalledTimes(12);
+it('test', () => {
+    const draw = jest.fn();
+    m.tree(json, 0, draw);
+    expect(draw).toHaveBeenCalledTimes(6);
 });

@@ -12,12 +12,12 @@ const json = {
     ]
 };
 
-function tree(data, n = 0) {
-    console.log(draw(n, data.name));
+function tree(data, n = 0, callback) {
+    console.log(callback(n, data.name));
     if(data.items) {
         n++;
         for(const key in data.items) {
-            tree(data.items[key], n);
+            tree(data.items[key], n, callback);
         }
     }
 }
@@ -34,7 +34,7 @@ function draw(n, name) {
    return `${n - 1 <= 0 ? '': tab}${tab ? sp : ''}${name}`
 }
 
-tree(json);
+tree(json, 0, draw);
 
 module.exports = {
     draw,
