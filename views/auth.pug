@@ -1,0 +1,23 @@
+div
+    div(class="modal-dialog")
+        div(class="modal-content")
+            div(class="modal-body")
+                +back
+                h2='Авторизация'
+                br
+                br
+                form(method="post", enctype="application/json")
+                    div(class="mb-3")
+                        label(for="email", class="form-label")="Email address"
+                        input(type="email" name='email', class="form-control" id="email")
+
+                    div(class="mb-3")
+                        label(for="password", class="form-label")="Password"
+                        input(type="password", name='password', class="form-control" id="password")
+
+                    button(type="submit", class="btn btn-primary")="Submit"
+
+                    if error
+                        br
+                        div(class="text-center text-danger")=error
+

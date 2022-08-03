@@ -1,0 +1,24 @@
+mixin back
+    a(href="/")='Назад'
+
+
+html
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css")
+    head
+        title= 'My-courses'
+    body
+        if globalError
+            div(class="text-center" style="background: yellow")= globalError
+        div(class="container px-4")
+            h1(class="text-center")='My-courses'
+            br
+
+            case route
+                when 'main': include ./main.pug
+                when 'auth': include ./auth.pug
+                when 'reg': include ./reg.pug
+
+                when 'create': include ./create.pug
+                when 'update': include ./update.pug
+                when 'courses': include ./courses.pug
+                when 'course': include ./course.pug

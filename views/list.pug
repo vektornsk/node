@@ -1,0 +1,12 @@
+ul(class="list-group")
+    each val in courses
+        li(class="list-group-item")
+            div(class="row")
+                div(class="col-4")
+                    a(href='/course/'+val.id)=val.title
+                div(class="col-4")
+                    p=val.desc
+                div(class="col-2")
+                    p=val.author
+                div(class="col-2")
+                    a(href='/update/'+val.id)=val.date
