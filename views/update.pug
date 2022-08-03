@@ -1,0 +1,49 @@
+if course
+    div
+        div(class="modal-dialog")
+            div(class="modal-content")
+                div(class="modal-body")
+                    +back
+                    h2='Редактирование ' + course.title
+                    br
+                    br
+                    if success
+                        div(class="text-center text-success")=success
+                        br
+
+                    form(method="post", enctype="application/json")
+                        div(class="mb-3")
+                            label(for="title", class="form-label")="Название"
+                            input(name='title', class="form-control" id="title" value=course.title)
+
+                        div(class="mb-3")
+                            label(for="desc", class="form-label")="Описание (size: 100)"
+                            textarea(name='desc', maxlength=100 class="form-control" id="desc")=value=course.desc
+
+                        div(class="mb-3")
+                            label(for="content", class="form-label")="Информация"
+                            textarea(name='content', class="form-control" id="content")=value=course.content
+
+                        div(class="mb-3")
+                            label(for="users", class="form-label")="Доступ по id"
+                            input(name='users', class="form-control" id="users" value=course.users)
+
+                        div(class="mb-3")
+                            br
+                            h3= 'Уроки'
+                            br
+
+                        each val, key in [1, 2, 3, 4, 5]
+                            div(class="mb-3")
+                                label(for='lesson'+ val, class="form-label")='Урок '+ val
+                                textarea(name='lesson'+ val, class="form-control" id='lesson'+ val )=course.lesson[key]
+
+                        button(type="submit", class="btn btn-primary")="Update"
+else
+    div
+        div(class="modal-dialog")
+            div(class="modal-content")
+                div(class="modal-body")
+                    +back
+                    h2= error
+

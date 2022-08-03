@@ -1,0 +1,41 @@
+if course
+    div
+        div(class="modal-dialog")
+            div(class="modal-content")
+                div(class="modal-body")
+                    +back
+                    h2=course.title
+                    br
+                    br
+
+                    div(class="mb-3")
+                        p=course.title
+
+                    div(class="mb-3")
+                        p=course.content
+
+                    div(class="mb-3")
+                        br
+                        h3= 'Уроки'
+                        br
+                        if viewing
+                            div(class="mb-3")
+                                div(class="accordion" id="accordion")
+                                    each val, key in course.lesson
+                                        div(class="accordion-item")
+                                            h2(class="accordion-header" id="heading"+key)
+                                                button(class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse"+key aria-controls="collapse"+key)= "Урок #" + (key+1)
+                                            div(id="collapse"+key class="accordion-collapse show collapse" aria-labelledby="heading"+key data-bs-parent="#accordion")
+                                                div(class="accordion-body")
+                                                    p=val
+                        else
+                            p='Нет доступа'
+
+else
+    div
+        div(class="modal-dialog")
+            div(class="modal-content")
+                div(class="modal-body")
+                    +back
+                    h2= error
+
