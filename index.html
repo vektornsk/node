@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Notifications c Web Sockets</title>
+</head>
+<body>
+
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/serviceWorker.js')
+                .then(function (registration) {
+                    console.log('[Service Worker] Registration successful with scope: ', registration.scope);
+                })
+                .catch(function (err) {
+                    console.log('[Service Worker] Registration failed: ', err)
+                });
+        });
+
+        // Получение от сервис воркера (НЕ РАБОТАЕТ)
+        navigator.serviceWorker.addEventListener('message', function(event) {
+            alert(event)
+        });
+    }
+</script>
+</html>
