@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "brand": "Mastercard",
+    "number": "2498618256211800",
+    "pin": "3624",
+    "name": "Reyna Baird",
+    "cvv": "922",
+    "expiry": "10/2028"
+  },
+  {
+    "id": 2,
+    "brand": "Visa",
+    "number": "408544412777316",
+    "pin": "4431",
+    "name": "Kaya Hoover",
+    "cvv": "223",
+    "expiry": "9/2028"
+  },
+  {
+    "id": 3,
+    "brand": "Mastercard",
+    "number": "2459254760993688",
+    "pin": "7296",
+    "name": "Ivan Hopkins",
+    "cvv": "400",
+    "expiry": "9/2028"
+  }
+]

@@ -1,11 +1,10 @@
 {
-  "name": "node",
+  "name": "qq",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vektornsk/node/issues"
   },
-  "homepage": "https://github.com/vektornsk/node#readme"
+  "homepage": "https://github.com/vektornsk/node#readme",
+  "dependencies": {
+    "prompt": "^1.3.0"
+  }
 }
