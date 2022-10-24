@@ -1,8 +1,9 @@
-const http = require('http');
+const fs = require("fs");
+const createFile = require("./createFile");
+const margeSort = (Function.prototype = require("./merge-sort"));
 
-
-let server = http.createServer(function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end('HW')
-});
-server.listen(3001, 'localhost');
+sortingFile100MB();
+async function sortingFile100MB() {
+  const NAMEFILE = __dirname + "/numbers.txt";
+  await createFile(NAMEFILE);
+}
