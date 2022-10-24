@@ -1,23 +1,44 @@
-const fs = require('fs');
+const fs = require("fs");
+const splittingIntoFiles = require("./splitting-into-file");
 
-const FILE_SIZE = 100000000;
-
-function random(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-fs.open('file.txt', 'w', (err) => {
-    if(err) throw err;
-
+module.exports = async function createFile(fileName) {
+  const file = fs.createWriteStream(fileName, "utf8"); // Файл для записи
+  const size = 100 * 1024 * 1024;
+  const pushNumber = async () => {
+    let num = "";
+    //Формирование буфера для аписи
     while (true) {
-        console.log(fs.statSync('file.txt').size);
-        if (fs.statSync('file.txt').size >= FILE_SIZE) {
-            console.log('File done');
-            break;
-        }
-
-        fs.appendFileSync('file.txt', random(10, 1000000) + ' ');
+      const number = Math.ceil(Math.random() * 10000000 + 1) + "\n";
+      if (num.length + 8 <= 1024) {
+        num += number;
+      } else {
+        num +=
+          Math.ceil(Math.random() * Math.pow(10, 1024 - num.length - 1)) + "\n";
+        break;
+      }
     }
-});
+    return await num;
+  };
+  async function writeFile() {
+    const num = await pushNumber();
+    if (num.length !== 1024) {
+      await writeFile();
+    } else {
+      await file.write(num, async (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          if (file.bytesWritten < size) {
+            await writeFile();
+          } else {
+            return splittingIntoFiles();
+          }
+        }
+      });
+    }
+  }
+  await writeFile();
+  if (file.bytesWritten === size) {
+    return true;
+  }
+};

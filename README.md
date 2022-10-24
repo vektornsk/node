@@ -1,1 +1,0 @@
-1) Запустить *node createFile.js* - для создания file.js 100MB
